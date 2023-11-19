@@ -1,0 +1,10 @@
+start: title requirements? download? development? staging? production? installation? usage?
+title: "# " LINE+ "\n"
+requirements: "# Requirements\n" LINE+ "\n"
+download: "# Download\n" LINE+ "\n"
+development: "# Development\n" LINE+ "\n"
+staging: "# Staging\n" LINE+ "\n"
+production: "# Production\n" LINE+ "\n"
+installation: "# Installation\n" LINE+ "\n"
+usage: "# Usage\n" LINE+ "\n"
+LINE: /.+[^\s]\n/
