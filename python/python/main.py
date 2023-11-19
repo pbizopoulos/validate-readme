@@ -17,7 +17,7 @@ production: "# Production\\n" LINE+ "\\n"
 installation: "# Installation\\n" LINE+ "\\n"
 usage: "# Usage\\n" LINE+ "\\n"
 LINE: /.+[^\\s]\\n/
-"""
+"""  # noqa: E501
 
 
 def readme_validator(code_input: str | TextIOWrapper) -> None:
