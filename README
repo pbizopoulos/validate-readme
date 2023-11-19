@@ -1,0 +1,26 @@
+# README validator
+https://pbizopoulos.github.io/readme-validator
+
+# Requirements
+POSIX Utilities
+Git
+Docker
+
+# Download
+git clone https://github.com/pbizopoulos/readme-validator
+cd readme-validator/
+
+# Development
+cd docs/ && make clean check all && cd ..
+cd python/python/ && make clean check all && cd ../..
+cd python/ && make clean check all && cd ..
+
+# Staging
+cd docs/ && make DEBUG=0
+
+# Installation
+python3 -m pip install https://github.com/pbizopoulos/readme-validator/archive/main.zip#subdirectory=python/python
+
+# Usage
+readme_validator main.py
+
