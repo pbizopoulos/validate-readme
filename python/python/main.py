@@ -6,14 +6,22 @@ from pathlib import Path
 
 from lark import Lark
 
-if __name__ == "__main__":
-    readme_file = "prm/readme.peg"
-else:
-    readme_file = "python/prm/readme.peg"
+grammar = """
+start: title requirements? download? development? staging? production? installation? usage?
+title: "# " LINE+ "\\n"
+requirements: "# Requirements\\n" LINE+ "\\n"
+download: "# Download\\n" LINE+ "\\n"
+development: "# Development\\n" LINE+ "\\n"
+staging: "# Staging\\n" LINE+ "\\n"
+production: "# Production\\n" LINE+ "\\n"
+installation: "# Installation\\n" LINE+ "\\n"
+usage: "# Usage\\n" LINE+ "\\n"
+LINE: /.+[^\\s]\\n/
+"""  # noqa: E501
+
 
 def readme_validator(code_input: str | TextIOWrapper) -> None:
-    with Path(readme_file).open() as file:
-        parser = Lark(file.read(), parser="lalr")
+    parser = Lark(grammar, parser="lalr")
     if isinstance(code_input, str):
         with Path(code_input).open() as file:
             parser.parse(file.read())
