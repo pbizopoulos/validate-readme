@@ -31,7 +31,7 @@ async def on_change_file_input(e) -> None:
 
 def main() -> None:
     with Path("README").open() as file:
-        document.getElementById("input-textarea").value = file.read()[:-1]
+        document.getElementById("input-textarea").value = file.read()
     on_keyup_input_textarea(None)
     add_event_listener(
         document.getElementById("input-textarea"),
