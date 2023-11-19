@@ -3,9 +3,6 @@ packages = [
 ]
 
 [[fetch]]
-from = "https://raw.githubusercontent.com/pbizopoulos/readme-validator/main/python/python/prm/readme.peg"
-
-[[fetch]]
 from = "https://raw.githubusercontent.com/pbizopoulos/readme-validator/main/python/python/main.py"
 
 [[fetch]]
