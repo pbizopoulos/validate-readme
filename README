@@ -19,7 +19,7 @@ cd python/ && make clean check all && cd ..
 cd docs/ && make DEBUG=0
 
 # Installation
-python3 -m pip install https://github.com/pbizopoulos/readme-validator/archive/main.zip#subdirectory=python/python
+pip install https://github.com/pbizopoulos/readme-validator/tarball/main#subdirectory=python/python
 
 # Usage
 readme_validator README
