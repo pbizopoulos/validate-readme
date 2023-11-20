@@ -22,5 +22,5 @@ cd docs/ && make DEBUG=0
 python3 -m pip install https://github.com/pbizopoulos/readme-validator/archive/main.zip#subdirectory=python/python
 
 # Usage
-readme_validator main.py
+readme_validator README
 
