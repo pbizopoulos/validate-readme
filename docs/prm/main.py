@@ -4,7 +4,7 @@ from pathlib import Path
 from js import document
 from pyodide.ffi.wrappers import add_event_listener
 
-from main import readme_validator
+from main import validate_readme
 
 
 def on_keyup_input_textarea(_: None) -> None:
@@ -16,7 +16,7 @@ def on_keyup_input_textarea(_: None) -> None:
     reader = io.BufferedReader(io.BytesIO(input_.encode("utf-8")))  # type: ignore[arg-type]
     wrapper = io.TextIOWrapper(reader)
     try:
-        readme_validator(wrapper)
+        validate_readme(wrapper)
         document.getElementById("output-pre").innerHTML = "Correct!"
     except Exception as exception:  # noqa: BLE001
         document.getElementById("output-pre").innerHTML = exception
