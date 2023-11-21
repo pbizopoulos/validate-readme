@@ -20,7 +20,7 @@ LINE: /.+[^\\s]\\n/
 """  # noqa: E501
 
 
-def readme_validator(code_input: str | TextIOWrapper) -> None:
+def validate_readme(code_input: str | TextIOWrapper) -> None:
     parser = Lark(grammar, parser="lalr")
     if isinstance(code_input, str):
         with Path(code_input).open() as file:
@@ -32,7 +32,7 @@ def readme_validator(code_input: str | TextIOWrapper) -> None:
 def main() -> None:
     num_arguments_allowed = 2
     if len(sys.argv) == num_arguments_allowed:
-        readme_validator(sys.argv[1])
+        validate_readme(sys.argv[1])
 
 
 if __name__ == "__main__":

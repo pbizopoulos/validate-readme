@@ -2,7 +2,7 @@
 dependencies = [
   "lark-parser==0.12.0"
 ]
-name = "readme-validator"
+name = "validate-readme"
 version = "0.0.0"
 
 [project.optional-dependencies]
@@ -16,7 +16,7 @@ dev = [
 ]
 
 [project.scripts]
-readme_validator = "main:main"
+validate_readme = "main:main"
 
 [tool.setuptools]
 py-modules = ["main"]

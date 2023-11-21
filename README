@@ -1,5 +1,5 @@
 # README validator
-https://pbizopoulos.github.io/readme-validator
+https://pbizopoulos.github.io/validate-readme
 
 # Requirements
 POSIX Utilities
@@ -7,8 +7,8 @@ Git
 Docker
 
 # Download
-git clone https://github.com/pbizopoulos/readme-validator
-cd readme-validator/
+git clone https://github.com/pbizopoulos/validate-readme
+cd validate-readme/
 
 # Development
 cd docs/ && make clean check all && cd ..
@@ -19,8 +19,8 @@ cd python/ && make clean check all && cd ..
 cd docs/ && make DEBUG=0
 
 # Installation
-pip install https://github.com/pbizopoulos/readme-validator/tarball/main#subdirectory=python/python
+pip install https://github.com/pbizopoulos/validate-readme/tarball/main#subdirectory=python/python
 
 # Usage
-readme_validator README
+validate_readme README
 
