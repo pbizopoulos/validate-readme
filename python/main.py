@@ -30,16 +30,16 @@ def validate_readme(code_input: str | TextIOWrapper) -> None:
         parser.parse(code_input.read())
 
 
-def main() -> None:
-    num_arguments_allowed = 2
-    if len(sys.argv) == num_arguments_allowed:
-        validate_readme(sys.argv[1])
-
-
 class Tests(unittest.TestCase):
     def test_validate_readme(self: Tests) -> None:
         with Path("prm/README").open(encoding="utf-8") as file:
             validate_readme(file)
+
+
+def main() -> None:
+    num_arguments_allowed = 2
+    if len(sys.argv) == num_arguments_allowed:
+        validate_readme(sys.argv[1])
 
 
 if __name__ == "__main__":
