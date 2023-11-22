@@ -3,7 +3,7 @@ packages = [
 ]
 
 [[fetch]]
-from = "https://raw.githubusercontent.com/pbizopoulos/validate-readme/main/python/python/main.py"
+from = "https://raw.githubusercontent.com/pbizopoulos/validate-readme/main/python/main.py"
 
 [[fetch]]
 from = "https://raw.githubusercontent.com/pbizopoulos/validate-readme/main/README"
