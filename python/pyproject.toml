@@ -16,7 +16,7 @@ dev = [
 ]
 
 [project.scripts]
-validate_readme = "main:validate_readme"
+validate_readme = "main:main"
 
 [tool.setuptools]
 py-modules = ["main"]
