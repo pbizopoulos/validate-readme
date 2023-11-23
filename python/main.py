@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import sys
 import unittest
 from io import TextIOWrapper
 from pathlib import Path
@@ -37,9 +36,9 @@ class Tests(unittest.TestCase):
 
 
 def main() -> None:
-    num_arguments_allowed = 2
-    if len(sys.argv) == num_arguments_allowed:
-        validate_readme(sys.argv[1])
+    import fire
+
+    fire.Fire(validate_readme)
 
 
 if __name__ == "__main__":
