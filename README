@@ -16,7 +16,7 @@ cd python/python/ && make clean check all && cd ../..
 cd python/ && make clean check all && cd ..
 
 # Staging
-cd docs/ && make DEBUG=0
+cd docs/ && make STAGING=1
 
 # Installation
 pip install https://github.com/pbizopoulos/validate-readme/tarball/main#subdirectory=python
