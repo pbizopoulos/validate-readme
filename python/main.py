@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import unittest
-from io import TextIOWrapper
 from pathlib import Path
 
 from lark import Lark
@@ -20,19 +19,23 @@ LINE: /.+[^\\s]\\n/
 """  # noqa: E501
 
 
-def validate_readme(code_input: str | TextIOWrapper) -> None:
+def validate_readme(input_file_name: str | bytes) -> None:
     parser = Lark(grammar, parser="lalr")
-    if isinstance(code_input, str):
-        with Path(code_input).open() as file:
+    if isinstance(input_file_name, str):
+        with Path(input_file_name).open() as file:
             parser.parse(file.read())
-    elif isinstance(code_input, TextIOWrapper):
-        parser.parse(code_input.read())
+    else:
+        parser.parse(input_file_name.decode())
 
 
 class Tests(unittest.TestCase):
-    def test_validate_readme(self: Tests) -> None:
+    def test_validate_readme_bytes_input(self: Tests) -> None:
         with Path("prm/README").open(encoding="utf-8") as file:
-            validate_readme(file)
+            bytes_input = file.read().encode("utf-8")
+            validate_readme(bytes_input)
+
+    def test_validate_readme_file_input(self: Tests) -> None:
+        validate_readme("prm/README")
 
 
 def main() -> None:

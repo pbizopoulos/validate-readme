@@ -13,10 +13,8 @@ def on_keyup_input_textarea(_: None) -> None:
         "input-textarea",
     ).style.height = f'{document.getElementById("input-textarea").scrollHeight}px'
     input_ = document.getElementById("input-textarea").value
-    reader = io.BufferedReader(io.BytesIO(input_.encode("utf-8")))  # type: ignore[arg-type]
-    wrapper = io.TextIOWrapper(reader)
     try:
-        validate_readme(wrapper)
+        validate_readme(input_.encode("utf-8"))
         document.getElementById("output-pre").innerHTML = "Correct!"
     except Exception as exception:  # noqa: BLE001
         document.getElementById("output-pre").innerHTML = exception
