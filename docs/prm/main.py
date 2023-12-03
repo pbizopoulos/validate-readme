@@ -1,42 +1,41 @@
 from pathlib import Path
 
-from js import document
+from js import ace, document
 from pyodide.ffi.wrappers import add_event_listener
 
-from main import validate_readme
+from main import validate_readme  # type: ignore[attr-defined]
+
+editor_input = ace.edit("editor-input")
+editor_input.setOption("maxLines", float("inf"))
+editor_output = ace.edit("editor-output")
+editor_output.setOption("maxLines", float("inf"))
+editor_output.setReadOnly(True)  # noqa: FBT003
 
 
-def on_keyup_input_textarea(_: None) -> None:
-    document.getElementById("input-textarea").style.height = "1px"
-    document.getElementById(
-        "input-textarea",
-    ).style.height = f'{document.getElementById("input-textarea").scrollHeight}px'
-    input_ = document.getElementById("input-textarea").value
+def on_keyup_editor_input(_: None) -> None:
+    input_ = editor_input.getValue()
     output = validate_readme(input_.encode("utf-8"))
     if output is None:
-        document.getElementById("output-textarea").innerHTML = "No issues!"
+        editor_output.setValue("No issues!")
     else:
-        document.getElementById("output-textarea").innerHTML = output
-    document.getElementById(
-        "output-textarea",
-    ).style.height = f'{document.getElementById("output-textarea").scrollHeight}px'
+        editor_output.setValue(output)
 
 
-async def on_change_file_input(e) -> None:
+async def on_change_file_input(e) -> None:  # type: ignore[no-untyped-def] # noqa: ANN001
     file_list = e.target.files
     first_item = file_list.item(0)
-    document.getElementById("input-textarea").value = await first_item.text()
-    on_keyup_input_textarea(None)
+    editor_input.setValue(await first_item.text())
+    on_keyup_editor_input(None)
 
 
 def main() -> None:
     with Path("README").open() as file:
-        document.getElementById("input-textarea").value = file.read()
-    on_keyup_input_textarea(None)
+        editor_input.setValue(file.read())
+    on_keyup_editor_input(None)
     add_event_listener(
-        document.getElementById("input-textarea"),
+        document.getElementById("editor-input"),
         "keyup",
-        on_keyup_input_textarea,
+        on_keyup_editor_input,
     )
     add_event_listener(
         document.getElementById("file-input"),
