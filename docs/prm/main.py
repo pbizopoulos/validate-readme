@@ -10,7 +10,7 @@ def on_keyup_input_textarea(_: None) -> None:
     document.getElementById("input-textarea").style.height = "1px"
     document.getElementById(
         "input-textarea",
-    ).style.height = f"{document.getElementById("input-textarea").scrollHeight}px"
+    ).style.height = f'{document.getElementById("input-textarea").scrollHeight}px'
     input_ = document.getElementById("input-textarea").value
     output = validate_readme(input_.encode("utf-8"))
     if output is None:
@@ -19,7 +19,7 @@ def on_keyup_input_textarea(_: None) -> None:
         document.getElementById("output-textarea").innerHTML = output
     document.getElementById(
         "output-textarea",
-    ).style.height = f"{document.getElementById("output-textarea").scrollHeight}px"
+    ).style.height = f'{document.getElementById("output-textarea").scrollHeight}px'
 
 
 async def on_change_file_input(e) -> None:
