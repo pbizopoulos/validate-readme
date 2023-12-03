@@ -14,7 +14,7 @@ def on_keyup_input_textarea(_: None) -> None:
     input_ = document.getElementById("input-textarea").value
     output = validate_readme(input_.encode("utf-8"))
     if output is None:
-        document.getElementById("output-textarea").innerHTML = ""
+        document.getElementById("output-textarea").innerHTML = "No issues!"
     else:
         document.getElementById("output-textarea").innerHTML = output
     document.getElementById(
