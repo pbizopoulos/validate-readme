@@ -14,7 +14,10 @@ def on_keyup_input_textarea(_: None) -> None:
     ).style.height = f'{document.getElementById("input-textarea").scrollHeight}px'
     input_ = document.getElementById("input-textarea").value
     output = validate_readme(input_.encode("utf-8"))
-    document.getElementById("output-pre").innerHTML = output
+    if (output is None):
+        document.getElementById("output-textarea").innerHTML = ""
+    else:
+        document.getElementById("output-textarea").innerHTML = output
 
 
 async def on_change_file_input(e) -> None:

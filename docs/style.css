@@ -5,16 +5,11 @@
 .column {
 	flex: 1;
 	padding: 10px;
+	width: 50%;
 }
 
-input,select {
+input {
 	width: 100%;
-}
-
-pre {
-	border: groove;
-	line-height: normal;
-	margin: 0;
 }
 
 textarea {
