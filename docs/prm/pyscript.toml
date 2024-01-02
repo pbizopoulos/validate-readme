@@ -1,5 +1,5 @@
 packages = [
-  "lark-parser",
+  "lark-parser"
 ]
 
 [[fetch]]
