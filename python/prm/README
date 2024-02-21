@@ -1,0 +1,26 @@
+# Validate README
+https://pbizopoulos.github.io/validate-readme
+
+# Requirements
+POSIX Shell & Utilities
+Git
+Docker
+
+# Download
+git clone https://github.com/pbizopoulos/validate-readme $HOME/github.com/pbizopoulos/validate-readme
+cd $HOME/github.com/pbizopoulos/validate-readme/
+
+# Development
+cd docs/ && make clean check all && cd ..
+cd python/python/ && make clean check all && cd ../..
+cd python/ && make clean check all && cd ..
+
+# Staging
+cd docs/ && make STAGING=1
+
+# Installation
+pip install https://github.com/pbizopoulos/validate-readme/tarball/main#subdirectory=python
+
+# Usage
+validate_readme README
+

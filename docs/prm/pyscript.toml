@@ -1,0 +1,9 @@
+packages = [
+  "lark-parser"
+]
+
+[[fetch]]
+from = "https://raw.githubusercontent.com/pbizopoulos/validate-readme/main/python/main.py"
+
+[[fetch]]
+from = "https://raw.githubusercontent.com/pbizopoulos/validate-readme/main/README"
