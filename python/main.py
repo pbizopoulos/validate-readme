@@ -37,10 +37,12 @@ class Tests(unittest.TestCase):
     def test_validate_readme_bytes_input(self: Tests) -> None:
         with Path("prm/README").open(encoding="utf-8") as file:
             bytes_input = file.read().encode("utf-8")
-        assert validate_readme(bytes_input) is None
+        if validate_readme(bytes_input):
+            raise AssertionError
 
     def test_validate_readme_file_input(self: Tests) -> None:
-        assert validate_readme("prm/README") is None
+        if validate_readme("prm/README"):
+            raise AssertionError
 
 
 def main() -> None:
